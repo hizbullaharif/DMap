@@ -9,6 +9,8 @@ import Foundation
 import MapKit
 import SwiftUI
 
+let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+
 class LocationViewModel: ObservableObject {
 
     //  All locations
@@ -22,7 +24,6 @@ class LocationViewModel: ObservableObject {
         }
     }
 
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
 
     @Published var showLocationList: Bool = false
 
