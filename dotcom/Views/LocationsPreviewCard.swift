@@ -63,6 +63,7 @@ extension LocationsPreviewCard {
     private var btns: some View {
         VStack(spacing: 8) {
             Button {
+                locationVm.sheetLocation.toggle()
             } label: {
                 Text("Learn More")
                     .frame(width: 125, height: 35)

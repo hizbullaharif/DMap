@@ -33,7 +33,6 @@ struct LocationView: View {
                             }
                     }
                 }
-
             )
             .ignoresSafeArea()
 
@@ -60,7 +59,9 @@ struct LocationView: View {
             }
 
         }
-
+        .sheet(isPresented: $locationsVM.sheetLocation) {
+            LocationDetailsView(location: locationsVM.mapLocation)
+        }
     }
 }
 

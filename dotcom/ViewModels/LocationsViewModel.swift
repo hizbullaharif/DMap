@@ -9,8 +9,6 @@ import Foundation
 import MapKit
 import SwiftUI
 
-let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-
 class LocationViewModel: ObservableObject {
 
     //  All locations
@@ -24,8 +22,11 @@ class LocationViewModel: ObservableObject {
         }
     }
 
-
     @Published var showLocationList: Bool = false
+
+    @Published var sheetLocation: Bool = false
+
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
 
     init() {
         let data = LocationsDataService.locations
@@ -57,8 +58,8 @@ class LocationViewModel: ObservableObject {
             self.toggleLocationList()
         }
     }
-    
-    func nextBtnPresses () {
+
+    func nextBtnPresses() {
         if let index = locations.firstIndex(of: mapLocation) {
             let nextIndex = (index + 1) % locations.count
             withAnimation(.easeInOut) {
